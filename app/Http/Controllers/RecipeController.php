@@ -33,7 +33,7 @@ class RecipeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
@@ -44,7 +44,7 @@ class RecipeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreRecipe $request)
     {
@@ -59,7 +59,7 @@ class RecipeController extends Controller
      * Display the specified resource.
      *
      * @param \App\Models\Recipe $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Recipe $recipe)
     {
@@ -73,7 +73,7 @@ class RecipeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Recipe $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Recipe $recipe)
     {
@@ -88,7 +88,7 @@ class RecipeController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Recipe $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(StoreRecipe $request, Recipe $recipe)
     {
@@ -101,7 +101,7 @@ class RecipeController extends Controller
      * Make the user confirm the deletion.
      *
      * @param \App\Models\Recipe $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function confirmDestroy(Recipe $recipe)
     {
@@ -115,11 +115,11 @@ class RecipeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Recipe $recipe
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Recipe $recipe)
     {
         $recipe->delete();
-        return redirect()->route("home");
+        return redirect()->route("recipes.mine");
     }
 }

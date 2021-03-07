@@ -2,8 +2,10 @@
 @section("content")
     <h2>{{$recipe->title}}</h2>
     @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()==$recipe->poster_id)
-        <a href="{{route("recipes.edit", $recipe->id)}}">Edit</a> -
-        <a href="{{route("recipes.confirmdestroy", $recipe->id)}}">Delete</a>
+        <div class="no-print">
+            <a href="{{route("recipes.edit", $recipe->id)}}">Edit</a> -
+            <a href="{{route("recipes.confirmdestroy", $recipe->id)}}">Delete</a>
+        </div>
     @endif
     <p>{{$recipe->time}}</p>
     <h3>Requirements</h3>

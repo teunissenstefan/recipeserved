@@ -15,13 +15,17 @@ class SearchController extends Controller
      */
     public function results()
     {
-        $query = isset($_GET["q"]) ? $_GET["q"] : "" ;
-        $recipesQuery = Recipe::where("title", "LIKE", "%".$query."%")
-            ->orWhere("time", "LIKE", "%".$query."%")
-            ->orWhere("requirements", "LIKE", "%".$query."%")
-            ->orWhere("instructions", "LIKE", "%".$query."%")
-            ->orWhere("credit", "LIKE", "%".$query."%")
-            ->orderBy("created_at", "DESC");
+        $query = isset($_GET["q"]) ? $_GET["q"] : "";
+        $queryArray = array_map('trim', explode(",", $query));
+        $recipesQuery = Recipe::query();
+        foreach ($queryArray as $q) {
+            $recipesQuery->orWhere("title", "LIKE", "%" . $q . "%")
+                ->orWhere("time", "LIKE", "%" . $q . "%")
+                ->orWhere("requirements", "LIKE", "%" . $q . "%")
+                ->orWhere("instructions", "LIKE", "%" . $q . "%")
+                ->orWhere("credit", "LIKE", "%" . $q . "%");
+        }
+        $recipesQuery->orderBy("created_at", "DESC");
         $recipes = $recipesQuery->paginate(15);
         $data = [
             "recipes" => $recipes,

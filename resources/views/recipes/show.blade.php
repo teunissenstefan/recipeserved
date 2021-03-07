@@ -1,7 +1,7 @@
 @extends("layouts.main")
 @section("content")
     <h2>{{$recipe->title}}</h2>
-    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()===$recipe->poster_id)
+    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()==$recipe->poster_id)
         <a href="{{route("recipes.edit", $recipe->id)}}">Edit</a> -
         <a href="{{route("recipes.confirmdestroy", $recipe->id)}}">Delete</a>
     @endif

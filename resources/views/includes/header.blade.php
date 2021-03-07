@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 
-<title>RecipeServed</title>
+<title>{{isset($pageTitle) ? $pageTitle." - ":""}}RecipeServed</title>
 <meta name="description" content="RecipeServed">
 <meta name="author" content="Stefan Teunissen">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

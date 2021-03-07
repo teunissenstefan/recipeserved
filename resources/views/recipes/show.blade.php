@@ -1,4 +1,4 @@
-@extends("layouts.main")
+@extends("layouts.main",['pageTitle' => $recipe->title])
 @section("content")
     <h2>{{$recipe->title}}</h2>
     @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()==$recipe->poster_id)

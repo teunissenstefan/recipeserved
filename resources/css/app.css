@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 
-#print-button{
+#print-button, #print-button-support{
     display:none;
 }
 

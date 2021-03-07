@@ -1,16 +1,24 @@
-.error-msg{
-    color:red;
+.error-msg {
+    color: red;
 }
+
 .a-button {
-    background:none!important;
-    border:none;
-    padding:0!important;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
     text-decoration: none;
     color: var(--links);
-    display: inline!important;
-    margin:0!important;
+    display: inline !important;
+    margin: 0 !important;
 }
-.a-button:hover{
+
+.a-button:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
 }

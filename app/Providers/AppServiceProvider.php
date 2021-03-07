@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Recipe;
 use App\Models\User;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->share("totalCountUsers", User::all()->count());
         view()->share("totalCountRecipes", Recipe::all()->count());
+        Paginator::defaultView('vendor.pagination.default');
     }
 }

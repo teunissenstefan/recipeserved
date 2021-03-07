@@ -26,7 +26,7 @@ class GeneralController extends Controller
     public function home()
     {
         $data = [
-            "latestRecipes" => Recipe::orderBy("created_at","DESC")->get(),
+            "latestRecipes" => Recipe::orderBy("created_at","DESC")->limit(15)->get(),
         ];
         return view('welcome')->with($data);
     }
@@ -58,9 +58,11 @@ class GeneralController extends Controller
      */
     public function myRecipes()
     {
+        $recipeQuery = Recipe::where("poster_id",Auth::id())->orderBy("created_at","DESC");
+        $recipes = $recipeQuery->paginate(15);
         $data = [
-            "recipes" => Recipe::where("poster_id",Auth::id())->orderBy("created_at","DESC")->get(),
-            "countMyRecipes" => Recipe::where("poster_id",Auth::id())->count()
+            "recipes" => $recipes,
+            "countMyRecipes" => $recipes->total()
         ];
         return view("recipes.mine")->with($data);
     }

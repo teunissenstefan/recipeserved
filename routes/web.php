@@ -20,5 +20,6 @@ Route::get("/dashboard", "\App\Http\Controllers\GeneralController@dashboard")->n
 Route::resource('recipes', \App\Http\Controllers\RecipeController::class);
 Route::get("/recipes/{recipe}/delete", "\App\Http\Controllers\RecipeController@confirmDestroy")->name("recipes.confirmdestroy");
 Route::get("/myrecipes", "\App\Http\Controllers\GeneralController@myRecipes")->name("recipes.mine");
+Route::get("/search", "\App\Http\Controllers\SearchController@results")->name("recipes.search");
 
 require __DIR__.'/auth.php';

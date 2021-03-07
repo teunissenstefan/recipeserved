@@ -1,6 +1,7 @@
 @extends("layouts.main")
 @section("content")
-    <h2>My recipes ({{$countMyRecipes}})</h2>
+    <h2>Search results ({{$countRecipes}})</h2>
+    @include("includes.searchform")
     @foreach($recipes as $recipe)
         @include("includes.recipelink")
     @endforeach

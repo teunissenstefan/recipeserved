@@ -1,12 +1,14 @@
 @extends("layouts.main",['pageTitle' => $recipe->title])
 @section("content")
     <h2>{{$recipe->title}}</h2>
-    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()==$recipe->poster_id)
-        <div class="no-print">
-            <a href="{{route("recipes.edit", $recipe->id)}}">Edit</a> -
+    <div class="no-print">
+        <a href="javascript:void(0);" id="print-button" onclick="window.print();">Print recipe</a>
+        <script>document.getElementById("print-button").style.display='inline';</script>
+        @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::id()==$recipe->poster_id)
+            - <a href="{{route("recipes.edit", $recipe->id)}}">Edit</a> -
             <a href="{{route("recipes.confirmdestroy", $recipe->id)}}">Delete</a>
-        </div>
-    @endif
+        @endif
+    </div>
     <p>{{$recipe->time}}</p>
     <h3>Requirements</h3>
     {!! displayWithFormatting($recipe->requirements) !!}

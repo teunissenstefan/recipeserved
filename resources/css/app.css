@@ -17,6 +17,10 @@
     cursor: pointer;
 }
 
+#print-button{
+    display:none;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

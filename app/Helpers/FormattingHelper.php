@@ -26,5 +26,7 @@ function displayWithFormatting($str)
     ];
     foreach($toReplace as $old=>$new)
         $str = str_replace($old,$new, $str);
-    return nl2br($str);
+    $str = preg_replace('~\r\n?~', "\n", $str);
+    $str = str_replace("\n\n", '<br/>', $str);
+    return $str;
 }

@@ -41,6 +41,14 @@
             <td>[small]Small[/small]</td>
             <td>{!! displayWithFormatting("[small]Small[/small]") !!}</td>
         </tr>
+        <tr>
+            <td>1 newline</td>
+            <td>0 newlines</td>
+        </tr>
+        <tr>
+            <td>2 newlines</td>
+            <td>1 newline</td>
+        </tr>
         </tbody>
     </table>
 @endsection

@@ -81,7 +81,6 @@ class ScrapeSimplyRecipes extends Command
             "https://www.simplyrecipes.com/recipes/home_cured_corned_beef/",
             "https://www.simplyrecipes.com/recipes/colcannon/",
             "https://www.simplyrecipes.com/recipes/irish_beef_stew/",
-            "https://www.simplyrecipes.com/recipes/lasagna/",
             "https://www.simplyrecipes.com/recipes/baked_ziti/",
             "https://www.simplyrecipes.com/recipes/fresh_basil_pesto/",
             "https://www.simplyrecipes.com/recipes/seared_ahi_tuna/",

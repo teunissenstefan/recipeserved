@@ -18,7 +18,7 @@ class IsMyRecipe
      */
     public function handle(Request $request, Closure $next)
     {
-        $recipe = Recipe::find($request->route()->parameter("recipe"))->first();
+        $recipe = $request->route()->parameter("recipe");
         if ($recipe->poster_id != Auth::id())
             return redirect()->route('recipes.show', $recipe->id);
         return $next($request);
